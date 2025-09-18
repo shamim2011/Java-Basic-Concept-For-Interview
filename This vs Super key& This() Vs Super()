@@ -1,1 +1,74 @@
 
+package JdbcPractice;
+
+import java.util.*;
+class Developer{
+	String projectName;
+	String tech;
+	public Developer() {
+		this("Instagram");
+	}
+	public Developer(String projectName) {
+		this("FaceBook","JavaTech");
+		this.projectName = projectName;
+	}
+	public Developer(String projectName,String tech) {
+		this.projectName = projectName;
+		this.tech = tech;
+	}
+}
+class JavaDeveloper extends Developer{
+	int salary = 45000;
+	public JavaDeveloper() {
+		
+	}
+	public JavaDeveloper(int salary) {
+		this();
+		this.salary = salary;
+	}
+	
+}
+public class DeveloperApp {
+	public static void main(String ... strings ) {
+		Scanner sc = new Scanner(System.in);
+		JavaDeveloper jd = new JavaDeveloper(75000);
+		System.out.println(jd.projectName);
+		System.out.println(jd.tech);
+		System.out.println(jd.salary);
+	}
+}
+
+
+
+---------------------------------------------------------------------------------------------  Super ------------------------
+
+package JdbcPractice;
+
+class Animal{
+	String animalSound = "Animal Sound";
+	public void makeSound() {
+		System.out.println("Animal making : "+animalSound);
+	}
+}
+
+class Tiger extends Animal{
+	String tigerSound = "Tiger Sound";
+	public void makeSound() {
+		System.out.println("Tiger making : "+tigerSound);
+	}
+	public void accessParentMethod() {
+		super.makeSound();
+	}
+}
+
+public class AnimalApp {
+	public static void main(String[] args) {
+		Tiger tg = new Tiger();
+		tg.makeSound();
+		tg.accessParentMethod();
+	}
+}
+
+
+
+
