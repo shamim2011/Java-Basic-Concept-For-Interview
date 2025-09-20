@@ -1,1 +1,82 @@
+package JdbcPractice;
 
+import java.util.*;
+
+// 1 Handling An Exception
+
+public class CalculateApp {
+	public static void main(String ... strings ) {
+		try {
+			Scanner sc = new Scanner(System.in);
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			int c = a/b;
+			System.out.println("Result:"+c);;
+			
+		}
+		catch(Exception e) {
+			System.out.println("Devide by zero ----> Its Handling an Exception");
+		}
+		finally {
+			System.out.println("Program Ended");
+		}
+	}
+}
+
+
+-------------------------------------------------------------    Rethrowing An Exception   --------------------------
+
+
+package JdbcPractice;
+
+import java.util.*;
+
+// 2 Rethrowing An Exception
+public class CalculateApp {
+    public static void main(String ... strings) {
+        try {
+            pay();
+        } catch (Exception e) {
+            System.out.println("Invalid amount ----> It's Rethrowing an Exception");
+        }
+    }
+
+    public static void pay() throws Exception {
+        try {
+            Scanner sc = new Scanner(System.in);
+            int a = sc.nextInt();
+            System.out.println("amount: " + a);
+        } catch (Exception e) {
+            throw e;  // rethrowing the exception
+        } finally {
+            System.out.println("Program is ended");
+        }
+    }
+}
+
+-------------------------------------------------------------    Ducking An Exception   --------------------------
+
+
+package JDBractice;
+
+import java.util.*;
+import java.text.*; // Assuming this import is present
+
+public class ExceptionApp {
+    public static void main(String... strings) {
+        try {
+            pay();
+        } catch (Exception e) {
+            System.out.println("Invalid amount... It's Ducking Exception");
+        }
+    }
+    
+    public static void pay() throws Exception {
+        try (Scanner sc = new Scanner(System.in)) {
+            int amount = sc.nextInt();
+            System.out.println("amount:" + amount);
+        } finally {
+            System.out.println("Program is ended");
+        }
+    }
+}
